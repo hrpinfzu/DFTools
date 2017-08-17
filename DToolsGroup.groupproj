@@ -1,0 +1,110 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{63ff9c34-cee3-4322-b09d-e3453e51802a}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="DTools\DTools.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="批量修改版本号\WizVersion.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="控件查找\WizFindComp.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="成员函数补足\WizAutoClassFunc.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Install\DToolsPack.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="代码版本管理\SrcVerMan.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="锁定界面\WizLockControls.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<BorlandProject>
+					<Default.Personality/>
+				</BorlandProject>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="DTools">
+			<MSBuild Projects="DTools\DTools.dproj"/>
+		</Target>
+		<Target Name="DTools:Clean">
+			<MSBuild Targets="Clean" Projects="DTools\DTools.dproj"/>
+		</Target>
+		<Target Name="DTools:Make">
+			<MSBuild Targets="Make" Projects="DTools\DTools.dproj"/>
+		</Target>
+		<Target Name="WizVersion">
+			<MSBuild Projects="批量修改版本号\WizVersion.dproj"/>
+		</Target>
+		<Target Name="WizVersion:Clean">
+			<MSBuild Targets="Clean" Projects="批量修改版本号\WizVersion.dproj"/>
+		</Target>
+		<Target Name="WizVersion:Make">
+			<MSBuild Targets="Make" Projects="批量修改版本号\WizVersion.dproj"/>
+		</Target>
+		<Target Name="WizFindComp">
+			<MSBuild Projects="控件查找\WizFindComp.dproj"/>
+		</Target>
+		<Target Name="WizFindComp:Clean">
+			<MSBuild Targets="Clean" Projects="控件查找\WizFindComp.dproj"/>
+		</Target>
+		<Target Name="WizFindComp:Make">
+			<MSBuild Targets="Make" Projects="控件查找\WizFindComp.dproj"/>
+		</Target>
+		<Target Name="WizAutoClassFunc">
+			<MSBuild Projects="成员函数补足\WizAutoClassFunc.dproj"/>
+		</Target>
+		<Target Name="WizAutoClassFunc:Clean">
+			<MSBuild Targets="Clean" Projects="成员函数补足\WizAutoClassFunc.dproj"/>
+		</Target>
+		<Target Name="WizAutoClassFunc:Make">
+			<MSBuild Targets="Make" Projects="成员函数补足\WizAutoClassFunc.dproj"/>
+		</Target>
+		<Target Name="DToolsPack">
+			<MSBuild Projects="Install\DToolsPack.dproj"/>
+		</Target>
+		<Target Name="DToolsPack:Clean">
+			<MSBuild Targets="Clean" Projects="Install\DToolsPack.dproj"/>
+		</Target>
+		<Target Name="DToolsPack:Make">
+			<MSBuild Targets="Make" Projects="Install\DToolsPack.dproj"/>
+		</Target>
+		<Target Name="SrcVerMan">
+			<MSBuild Projects="代码版本管理\SrcVerMan.dproj"/>
+		</Target>
+		<Target Name="SrcVerMan:Clean">
+			<MSBuild Targets="Clean" Projects="代码版本管理\SrcVerMan.dproj"/>
+		</Target>
+		<Target Name="SrcVerMan:Make">
+			<MSBuild Targets="Make" Projects="代码版本管理\SrcVerMan.dproj"/>
+		</Target>
+		<Target Name="WizLockControls">
+			<MSBuild Projects="锁定界面\WizLockControls.dproj"/>
+		</Target>
+		<Target Name="WizLockControls:Clean">
+			<MSBuild Targets="Clean" Projects="锁定界面\WizLockControls.dproj"/>
+		</Target>
+		<Target Name="WizLockControls:Make">
+			<MSBuild Targets="Make" Projects="锁定界面\WizLockControls.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="DTools;WizVersion;WizFindComp;WizAutoClassFunc;DToolsPack;SrcVerMan;WizLockControls"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="DTools:Clean;WizVersion:Clean;WizFindComp:Clean;WizAutoClassFunc:Clean;DToolsPack:Clean;SrcVerMan:Clean;WizLockControls:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="DTools:Make;WizVersion:Make;WizFindComp:Make;WizAutoClassFunc:Make;DToolsPack:Make;SrcVerMan:Make;WizLockControls:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>
